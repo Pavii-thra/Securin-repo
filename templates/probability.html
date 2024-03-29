@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Probability</title>
+    <a href="{{ url_for('home') }}">Back to Home</a>
+    <style>
+        
+       
+        table {
+            width: 80%;
+            border-collapse: collapse;
+            margin: 20px auto;
+        }
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Probability</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Sum</th>
+                <th>Probability</th>
+                <th>Combinations</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for sum, data in output.items() %}
+            <tr>
+                <td>{{ sum }}</td>
+                <td>{{ data['probability'] }}</td>
+                <td>
+                    <ul>
+                        {% for combination in data['combinations'] %}
+                        <li>({{ combination[0] }}, {{ combination[1] }})</li>
+                        {% endfor %}
+                    </ul>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+   
+</body>
+</html>

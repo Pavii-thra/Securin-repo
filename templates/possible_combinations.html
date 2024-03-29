@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Possible Combinations</title>
+    <a href="{{ url_for('home') }}">Back to Home</a>
+    <style>
+        
+       
+        table {
+            width: 80%;
+            border-collapse: collapse;
+            margin: 20px auto;
+        }
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Possible Combinations</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Combination</th>
+                <th>Die A</th>
+                <th>Die B</th>
+                <th>Sum</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for key, value in combinations.items() %}
+            <tr>
+                <td>{{ key }}</td>
+                <td>{{ value['Die_A'] }}</td>
+                <td>{{ value['Die_B'] }}</td>
+                <td>{{ value['Sum'] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    
+</body>
+</html>
